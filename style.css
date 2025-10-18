@@ -291,6 +291,11 @@ body::before {
     box-shadow: 0 0 20px rgba(136, 204, 238, 0.2);
 }
 
+.problems-section h4 {
+    color: #88ccee;
+    text-shadow: 0 0 10px rgba(136, 204, 238, 0.5);
+}
+
 .problems-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -316,11 +321,6 @@ body::before {
     color: #ffaa44;
     font-size: 1.2em;
     text-shadow: 0 0 10px rgba(255, 170, 68, 0.6);
-}
-
-.problems-section h4 {
-    color: #88ccee;
-    text-shadow: 0 0 10px rgba(136, 204, 238, 0.5);
 }
 
 .restrictions-box {
