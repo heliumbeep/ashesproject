@@ -3,270 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía - Reglas del Servidor</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.95;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .section-title {
-            font-size: 1.8em;
-            color: #667eea;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5em;
-        }
-
-        .subsection {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .subsection h3 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .list-item {
-            padding: 12px 0;
-            border-bottom: 1px dashed #e0e0e0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .list-item:last-child {
-            border-bottom: none;
-        }
-
-        .bullet {
-            min-width: 25px;
-            height: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8em;
-            margin-top: 2px;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #ffc107;
-            margin: 20px 0;
-        }
-
-        .highlight-title {
-            color: #ff6b6b;
-            font-weight: bold;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .requirements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .req-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border-top: 4px solid #667eea;
-        }
-
-        .req-card h4 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .req-item {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .req-item::before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .important-box {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .important-box h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .problems-section {
-            background: #e3f2fd;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .problem-list {
-            list-style: none;
-        }
-
-        .problem-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .problem-list li::before {
-            content: "⚠";
-            position: absolute;
-            left: 0;
-            color: #ff9800;
-            font-size: 1.2em;
-        }
-
-        .restrictions-box {
-            background: #fff3e0;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid #ff9800;
-            margin-top: 20px;
-        }
-
-        .restrictions-box h4 {
-            color: #f57c00;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .note {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
-            margin-top: 15px;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .problems-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .requirements-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
+    <title>Infografía WotLK - Reglas del Servidor</title>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📋 GUÍA COMPLETA DEL SERVIDOR</h1>
-            <p>Reglas y Requisitos para el Crecimiento Progresivo</p>
+            <h1>❄️ WRATH OF THE LICH KING ❄️</h1>
+            <p>📋 Reglas y Requisitos del Gremio | Icecrown Citadel & Más</p>
         </div>
 
         <div class="content">
-            <!-- INGRESO AL SERVIDOR -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">🚪</div>
@@ -284,7 +30,6 @@
                 </div>
             </div>
 
-            <!-- RAIDS POR ITEMS -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">⚔️</div>
@@ -338,7 +83,6 @@
                 </div>
             </div>
 
-            <!-- INTERACTUAR CON GLOBALES -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">🌍</div>
@@ -354,28 +98,25 @@
                 </div>
             </div>
 
-            <!-- IMPORTANTE -->
             <div class="important-box">
                 <h3>⚠️ IMPORTANTE</h3>
                 <p><strong>Para cada raid ocurrida DE USTEDES DEPENDE enviar enviar un mensaje al canal de Discord llamado PJ MS SELECCIONADA</strong>, con el fin de a) respaldar ahí lo ms pero mas importante aun b) poder llevar un conteo de raids previas.</p>
             </div>
 
-            <!-- PROHIBICIÓN -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">🚫</div>
                     <span>PROHIBICIÓN DE ARMAR RAIDS ANTES DE LAS 00:00</span>
                 </div>
-                <p>Con el fin de poder evitar que utilicen a la gente con otros intereses es que se priva o se permite que sólo los OFICIALES armen para gente de la GUILD.</p>
+                <p style="color: #c8e6f5;">Con el fin de poder evitar que utilicen a la gente con otros intereses es que se priva o se permite que sólo los OFICIALES armen para gente de la GUILD.</p>
             </div>
 
-            <!-- REQUISITOS PARA RAIDS -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">📋</div>
                     <span>REQUISITOS PARA RAIDS</span>
                 </div>
-                <p style="margin-bottom: 20px;"><strong>Engendados & Encantados para Citas Importantes | (OC-BS-TOC25)</strong></p>
+                <p style="margin-bottom: 20px; color: #c8e6f5;"><strong style="color: #88ccee;">Engendados & Encantados para Citas Importantes | (OC-BS-TOC25)</strong></p>
                 
                 <div class="requirements-grid">
                     <div class="req-card">
@@ -383,7 +124,7 @@
                         <div class="req-item">5.6k gs</div>
                         <div class="req-item">Logro de Mata Reyes en 10n con erqas PJ</div>
                         <div class="req-item">Caso contrario se asumirá sin interés</div>
-                        <p style="margin-top: 15px; font-size: 0.95em; color: #666;">Debido a que si se pretende generar todas las instancias tanto para su crecimiento como para que reciban los propios requisitos solicitados.</p>
+                        <p style="margin-top: 15px; font-size: 0.95em;">Debido a que si se pretende generar todas las instancias tanto para su crecimiento como para que reciban los propios requisitos solicitados.</p>
                     </div>
 
                     <div class="req-card">
@@ -408,12 +149,11 @@
 
                     <div class="req-card">
                         <h4>REQUISITOS TOC25</h4>
-                        <p style="color: #666;">Se espera que se aprovechen las TOC10, SPAM de Diarias & Semanales para que logren sacar los ítems que les permitan cumplir los requisitos, respetando una secuencia deseada y con ello liberar presión para el progreso esperado en los distintos grados.</p>
+                        <p>Se espera que se aprovechen las TOC10, SPAM de Diarias & Semanales para que logren sacar los ítems que les permitan cumplir los requisitos, respetando una secuencia deseada y con ello liberar presión para el progreso esperado en los distintos grados.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- PROBLEMÁTICAS -->
             <div class="section">
                 <div class="section-title">
                     <div class="icon">⚠️</div>
@@ -423,7 +163,7 @@
                 <div class="problems-section">
                     <div class="problems-grid">
                         <div>
-                            <h4 style="color: #1976d2; margin-bottom: 15px;">❌ Problemas Detectados:</h4>
+                            <h4 style="margin-bottom: 15px;">❌ Problemas Detectados:</h4>
                             <ul class="problem-list">
                                 <li>Morir por fuegos, rqiar sin bufearse</li>
                                 <li>Matar controlados en lady</li>
@@ -435,7 +175,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h4 style="color: #1976d2; margin-bottom: 15px;">✓ Comportamientos Esperados:</h4>
+                            <h4 style="margin-bottom: 15px;">✓ Comportamientos Esperados:</h4>
                             <ul class="problem-list">
                                 <li>Morir al inicio en príncipes por no separarse del upice o acumulación de cargas</li>
                                 <li>Ausencia en sanación o Dpss en Dragona</li>
@@ -454,8 +194,8 @@
                     <p>2-B: Uso de Discord de DBW, será Obligatorio durante todo el CD de la Alienda y falta desd aguno de ellos continuará a la exclusión de TODO el loot</p>
                     <p>3-Mayor que Marca de Sebe tener 210 engendado & encantados</p>
                     <p>4-Para otras Marcas debe tener 210 engendado & encantados</p>
-                    <p style="margin-top: 15px; font-style: italic; color: #666;">No Items ganados de restricciones de 30 salvos ivas trinket (X arma i cumpliendo requisitos i</p>
-                    <p style="font-style: italic; color: #666;">El rama ganados del raid / raid -2 item (CC -1 punto por raid</p>
+                    <p style="margin-top: 15px; font-style: italic;">No Items ganados de restricciones de 30 salvos ivas trinket (X arma i cumpliendo requisitos i</p>
+                    <p style="font-style: italic;">El rama ganados del raid / raid -2 item (CC -1 punto por raid</p>
                 </div>
 
                 <div class="note" style="margin-top: 20px;">
